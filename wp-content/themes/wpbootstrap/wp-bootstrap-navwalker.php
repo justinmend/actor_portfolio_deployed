@@ -106,12 +106,10 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 				$atts['rel']    = ! empty( $item->xfn )    ? $item->xfn    : '';
 				// If item has_children add atts to a.
 				   if ( $args->has_children && $depth === 0 ) {
-				    $atts['data-target']    = '#';
-				    // use this if you want to be able to toggle menu $atts['data-toggle'] = 'dropdown';
-				    $atts['data-hover']  = 'dropdown';
-				    $atts['data-delay']  = '100';
+				    $atts['href']     = '#';
+				    $atts['data-toggle'] = 'dropdown';
 				    $atts['class']   = 'dropdown-toggle';
-				    $atts['href']    = ! empty( $item->url ) ? $item->url : '';
+				    $atts['aria-haspopup'] = 'true';
 				   } else {
 				    $atts['href'] = ! empty( $item->url ) ? $item->url : '';
 				   }
